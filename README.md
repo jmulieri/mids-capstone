@@ -7,7 +7,7 @@ There are three main components contained in this repo: python notebooks that we
 ## [Notebooks](./notebooks/)
 The notebooks directory contains a collection of python notebooks that we used to build our data pipeline. The final logistic regression is contained within 'Full Logistic Regression Data Pipeline.ipynb'.
 
-## [FastAPI Backend](./home-again-backend/)
+## [FastAPI Backend](./home-again-api/)
 The home-again-backend directory contains the FastAPI backend. It makes use of SQLAlchemy to interact with RDS and also SKLearn to provide homeless service recommendations for program participants to increase their likelihood of a permanent housing outcome.
 
 ## [React Frontend](./home-again-frontend/)
