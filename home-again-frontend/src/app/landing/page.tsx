@@ -10,28 +10,8 @@ import sidImage from "@/assets/sid.png";
 import moeImage from "@/assets/moe.png";
 import scottImage from "@/assets/scott.png";
 import { Link } from "react-router-dom";
-import {useEffect} from "react";
 
 const LandingPage = () => {
-
-    const headerHeight = 80;
-
-    useEffect(() => {
-        const handleScroll = () => {
-            const header = document.querySelector("header");
-            console.log('window.scrollY', window.scrollY);
-            if (!header) return;
-            console.log('headerHeight', headerHeight);
-            if (window.scrollY > headerHeight) {
-                header.classList.add("bg-opacity-50");
-            } else {
-                header.classList.remove("bg-opacity-50");
-            }
-        };
-
-        window.addEventListener("scroll", handleScroll);
-        return () => window.removeEventListener("scroll", handleScroll);
-    }, []);
 
     return (
         <div className="min-h-screen w-screen">
@@ -54,6 +34,14 @@ const LandingPage = () => {
                                 Project</h2>
                         </div>
                     </div>
+                    <div className="absolute bottom-0 left-0 pl-2">
+                        <p className="text-left">
+                            <sup>
+                                <a className="text-neutral-100 hover:text-white text-xl"
+                                   href="#footnote1">&#185; <span className="text-sm">iStock illustration</span></a>
+                            </sup>
+                        </p>
+                    </div>
                 </div>
                 <div className="w-full bg-primary h-[8px]"></div>
                 <div className="w-full bg-white">
@@ -73,24 +61,28 @@ const LandingPage = () => {
                         <h2 className="text-2xl font-bold">Problem</h2>
                         <p className="m-2 mt-4 md:m-4 text-lg">
                             In 2023, there were 653,100 people reported homeless, with 31% of these individuals
-                            experiencing chronic patterns of homelessness. Many of these individuals exit homelessness
+                            experiencing chronic patterns of homelessness.<sup><a
+                            className="p-1 text-white hover:text-white text-xl" href="#footnote2">&#178;</a></sup> Many
+                            of these individuals exit homelessness
                             programs without finding permanent housing.
                         </p>
                     </div>
                     <div className="w-full md:flex-1 p-4 text-center">
                         <h2 className="text-2xl font-bold">Solution</h2>
                         <p className="m-2 mt-4 md:m-4 text-lg">
-                            Apply machine learning to identify success factors, such as program services, that lead to
-                            permanent housing outcomes. Make use of these models to recommend individualized service
-                            plans to increase the likelihood of a positive outcome.
+                            Apply machine learning to identify services that lead to permanent housing outcomes. Use
+                            these results to recommend individualized service plans that increase the likelihood of
+                            participants exiting support programs to permanent housing situations.
                         </p>
                     </div>
                     <div className="w-full md:flex-1 p-4 text-center">
                         <h2 className="text-2xl font-bold">Impact</h2>
                         <p className="m-2 mt-4 md:m-4 text-lg">
-                            With over 12,462 reported homelessness organizations, our solution has the potential
-                            to impact thousands of lives with personalized service plans that guide them home again
-                            while helping improve the efficacy of homelessness organizations.
+                            With over 12,462 reported homelessness organizations,<sup>
+                            <a className="p-1 text-white hover:text-white text-xl pr-2"
+                               href="#footnote3">&#179;</a></sup>
+                            our solution has the potential to impact thousands of lives with personalized service plans
+                            that guide them home again while helping improve the efficacy of homelessness organizations.
                         </p>
                     </div>
                 </div>
@@ -99,7 +91,7 @@ const LandingPage = () => {
                         <div className="w-full xl:w-1/3 py-14 px-14 my-auto">
                             <h2 className="text-left text-4xl font-bold text-neutral-600">Analytics Dashboard</h2>
                             <p className="text-left text-2xl mt-4">
-                                Home Again provides analytics for program administrators gain insight into unhoused
+                                Home Again provides analytics for program administrators to gain insight into unhoused
                                 populations across geographic areas and programs:
                                 <ul className="list-disc ml-8 mt-4">
                                     <li>Average enrollment duration</li>
@@ -122,7 +114,7 @@ const LandingPage = () => {
                             <div className="xl:mt-32">
                                 <h2 className="text-left text-4xl font-bold text-neutral-600">Case Management</h2>
                                 <p className="text-left text-2xl mt-4">
-                                    The Home Again provides case managers a portal for managing program participants:
+                                    Home Again provides case managers a portal for managing program participants:
                                     <ul className="list-disc ml-8 mt-4">
                                         <li>Create participant profiles</li>
                                         <li>List and search for participants</li>
@@ -220,8 +212,9 @@ const LandingPage = () => {
                     </div>
                 </div>
                 <div className="w-full text-white py-10" style={{background: "rgb(71, 119, 144)"}}>
-                    <p className="text-center w-full text-lg">© 2024 Michelle Sinani, Jonathan Mulieri, Siddharth Chandras, Mu'izz Widatalla, Scott Thompson</p>
-                    <div className="w-full m-auto flex justify-center">
+                    <p className="text-center w-full text-lg">© 2024 Michelle Sinani, Jonathan Mulieri, Siddharth
+                        Chandras, Mu'izz Widatalla, Scott Thompson</p>
+                    <div className="w-full m-auto flex justify-center pb-2">
                         <a href="https://github.com/jmulieri/mids-capstone" target="_blank" rel="noopener noreferrer"
                            className="flex items-center text-white pt-4">
                             <svg height="32" aria-hidden="true" viewBox="0 0 16 16" version="1.1" width="32"
@@ -232,6 +225,31 @@ const LandingPage = () => {
                             <span className="text-xl text-neutral-900 pl-4">View on GitHub</span>
                         </a>
                     </div>
+
+                    <p id="footnote1"><span className="text-xl p-1">&#185;</span>
+                        <a className="text-neutral-300 hover:text-neutral-200 hover:underline"
+                           href="https://calmatters.org/commentary/2022/05/community-planning-is-key-to-solving-housing-crisis/"
+                           rel="noopener noreferrer" target="_blank"
+                        >
+                            Source: iStock illustration from CalMatters article
+                        </a>
+                    </p>
+                    <p id="footnote2"><span className="text-xl p-1">&#178;</span>
+                        <a className="text-neutral-300 hover:text-neutral-200 hover:underline"
+                           href="https://www.huduser.gov/portal/sites/default/files/pdf/2023-AHAR-Part-1.pdf"
+                           rel="noopener noreferrer" target="_blank"
+                        >
+                            Source: The U.S. Department of Housing and Urban Development (HUD)
+                        </a>
+                    </p>
+                    <p id="footnote3"><span className="text-xl p-1">&#179;</span>
+                        <a className="text-neutral-300 hover:text-neutral-200 hover:underline"
+                           href="https://www.ibisworld.com/industry-statistics/number-of-businesses/community-housing-homeless-shelters-united-states/"
+                           rel="noopener noreferrer" target="_blank"
+                        >
+                            Source: IBISWorld Industry Statistics
+                        </a>
+                    </p>
                 </div>
             </main>
         </div>
